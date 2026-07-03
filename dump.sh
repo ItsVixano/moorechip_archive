@@ -29,8 +29,8 @@ for i in ${@:2}; do
         mkdir ota_new
         ./bin/ota_extractor -input-dir ota -output_dir ota_new -payload payload_working.bin
 
-        rm -rf ota
-        mv ota_new ota
+        cp -r ota_new/* ota/
+        rm -rf ota_new
 
         rm payload_working.bin
     ) & # Allow subsequent downloads to be done in parallel
